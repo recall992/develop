@@ -1,6 +1,7 @@
 package org.hwl.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hwl.bean.User;
 import org.hwl.dao.UserDao;
@@ -27,5 +28,9 @@ public class UserServiceImpl implements IUserService {
 
 	public User getUserByName(String name){
 		return userdao.getUserByName(name);
+	}
+	@Override
+	public List<Map> getAll() {
+		return userdao.getAll();
 	}
 }

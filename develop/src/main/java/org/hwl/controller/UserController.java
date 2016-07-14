@@ -23,4 +23,10 @@ public class UserController extends BaseController {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		flush(response, userService.getAllUsers());
 	}
+	
+	@RequestMapping("/users")
+	public void getAlluser(HttpServletRequest request, HttpServletResponse response){
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		flush(response, userService.getAll());
+	}
 }

@@ -24,11 +24,11 @@
 					<constructor-arg index="1" value="6379" />
 					<constructor-arg index="2" value="instance:01" />
 				</bean>
-				<bean class="redis.clients.jedis.JedisShardInfo">
+			<!-- 	<bean class="redis.clients.jedis.JedisShardInfo">
 					<constructor-arg index="0" value="114.112.153.237" />
 					<constructor-arg index="1" value="6379" />
 					<constructor-arg index="2" value="instance:02" />
-				</bean>
+				</bean> -->
 			</list>
 		</constructor-arg>
 	</bean>

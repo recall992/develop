@@ -162,6 +162,13 @@
 			<artifactId>spring-data-redis</artifactId>
 			<version>1.7.2.RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>ssm</finalName>

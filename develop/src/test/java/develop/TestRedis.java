@@ -7,6 +7,7 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
 public class TestRedis {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:spring.xml");
 		ShardedJedisPool jedisPool=ac.getBean(ShardedJedisPool.class);

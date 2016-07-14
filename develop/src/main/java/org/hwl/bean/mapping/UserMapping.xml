@@ -3,18 +3,18 @@
 <mapper namespace="org.hwl.dao.UserDao">
 	<cache></cache>
 	<select id="getAllUser" resultType="User">
-		select * from User
+		select * from t_User
 	</select>
 	<insert id="addUser" parameterType="User">
-		insert into User(id,name,age,address) values(0,#{name},#{age},#{address})
+		insert into t_User(id,name,age,address) values(0,#{name},#{age},#{address})
 	</insert>
 	<select id="getUserById" parameterType="int" resultType="User">
-		select * from user where id=#{id}
+		select * from t_user where id=#{id}
 	</select>
 	<select id="getUserByName" parameterType="string" resultType="User">
-		select * from user where name=#{name}
+		select * from t_user where name=#{name}
 	</select>
 	<select id="getAll" resultType="map">
-		select * from User
+		select * from t_User
 	</select>
 </mapper>

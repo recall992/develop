@@ -19,6 +19,8 @@ public class UserController extends BaseController {
 
 	@RequestMapping("/all")
 	public void getAll(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//设置跨域
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		flush(response, userService.getAllUsers());
 	}
 }

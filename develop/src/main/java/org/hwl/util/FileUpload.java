@@ -13,44 +13,52 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-public class FileUpload {    
-    private String filename;
-    private String sessionid;
-    private long read;
-    private long length;
-	public String getFilename() {
-		return filename;
-	}
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
-	public String getSessionid() {
-		return sessionid;
-	}
-	public void setSessionid(String sessionid) {
-		this.sessionid = sessionid;
-	}
-	public long getRead() {
-		return read;
-	}
-	public void setRead(long read) {
-		this.read = read;
-	}
-	public long getLength() {
-		return length;
-	}
-	public void setLength(long length) {
-		this.length = length;
-	}
-	public FileUpload(String filename, String sessionid, long read, long length) {
-		super();
-		this.filename = filename;
-		this.sessionid = sessionid;
-		this.read = read;
-		this.length = length;
-	}
-	public FileUpload() {
-		super();
-	}
-    
-}   
+public class FileUpload {  
+    private Map<String,String> params;  
+    private Map<String,FileItem> files;  
+      
+    public FileUpload() {  
+        params=new HashMap<String, String>();  
+        files=new HashMap<String, FileItem>();  
+    }  
+      
+    public void setMap(HttpServletRequest request,String key){  
+        FileItemFactory factory = new DiskFileItemFactory();  
+        ServletFileUpload upload = new ServletFileUpload(factory);  
+        upload.setHeaderEncoding("utf-8");  
+        upload.setProgressListener(new Progress(request,key));//设置进度监听器  
+        try {  
+            List items = upload.parseRequest(request);  
+            Iterator iter = items.iterator();  
+            while (iter.hasNext()) {  
+                FileItem item = (FileItem) iter.next();  
+                if (item.isFormField()) {  
+                    String name = item.getFieldName();  
+                    String value = "http://blog.csdn.net/guoxuepeng123/article/details/item.getString()";  
+                    params.put(name, value);  
+                }   
+                else{  
+                    String name=item.getFieldName();  
+                    files.put(name, item);  
+                }  
+            }  
+        } catch (FileUploadException e) {  
+            e.printStackTrace();  
+        }  
+    }  
+  
+    public Map<String, String> getParams() {  
+        return params;  
+    }  
+  
+    public Map<String, FileItem> getFiles() {  
+        return files;  
+    }  
+    //用来获取文件的名字  
+    public String getFileName(FileItem item){  
+        String fName=item.getName();  
+        int lastIndex=fName.lastIndexOf("//");  
+        fName=fName.substring(lastIndex+1);  
+        return fName;  
+    }  
+} 

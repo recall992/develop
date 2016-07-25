@@ -4,14 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="plugin/uuid.js"></script>
 <title>Insert title here</title>
+
 </head>
 <body>
 	<div>
 		<form action="upload/upfile" enctype="multipart/form-data" method="post">
 			<input type="file"  name="upload">
+			<input type="hidden" >
 			<input type="submit" value="提交">
 		</form>
 	</div>
+	<script type="text/javascript">
+		var x=Math.uuid();
+		$("input").eq(1).val(x);
+	</script>
 </body>
 </html>

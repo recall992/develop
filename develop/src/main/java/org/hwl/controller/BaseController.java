@@ -15,7 +15,6 @@ public class BaseController {
 		try {
 			out = response.getWriter();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			out.print(JSON.toJSONString(data));

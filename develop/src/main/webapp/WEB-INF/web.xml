@@ -46,8 +46,8 @@
 		<load-on-startup>1</load-on-startup>
 		<!-- <async-supported>true</async-supported> -->
 	</servlet>
-	<!-- 加载静态资源 -->
-	<servlet-mapping>
+	 <!-- 加载静态资源 -->
+	<!--<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.css</url-pattern>
 		<url-pattern>*.gif</url-pattern>
@@ -60,7 +60,7 @@
 		<url-pattern>*.apk</url-pattern>
 		<url-pattern>*.zip</url-pattern>
 		<url-pattern>*.html</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
 		<!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
@@ -73,7 +73,7 @@
 		<session-timeout>15</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>/index.html</welcome-file>
+		<welcome-file>/common/index.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>

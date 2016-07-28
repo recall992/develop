@@ -7,29 +7,32 @@ import org.apache.log4j.Logger;
 import org.hwl.bean.User;
 import org.hwl.redis.RedisUtil;
 import org.hwl.service.IUserService;
+import org.hwl.util.HttpCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/user")
 public class UserController extends BaseController {
 	private static Logger logger = Logger.getLogger(UserController.class);
+	
 	@Autowired
 	private IUserService userService;
-
-	@RequestMapping("/all")
-	public void getAll(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//设置跨域
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		
-		RedisUtil.getJedis().set("haifenghaifeng", "haifengXXXXXXXXXXXXXX");
-		flush(response, userService.getAllUsers());
+	
+	@RequestMapping("/login")
+	public void loginPage(HttpServletRequest request, HttpServletResponse response,
+			 @RequestParam(value="name",required=true)String name,
+			 @RequestParam(value="pwd",required=true)String pwd){
+		User user=userService.getUserByName(name);
+		if(user==null){
+			flush(response, HttpCode.buildResult(HttpCode.STATE_ERROR, "用户不存在"));
+		}else if(user.getPassword()!=pwd){
+			flush(response, HttpCode.buildResult(HttpCode.STATE_ERROR, "密码错误"));
+		}else{
+			flush(response, HttpCode.buildResult(HttpCode.STATE_SUCCESS, null));
+		}
 	}
 	
-	@RequestMapping("/users")
-	public void getAlluser(HttpServletRequest request, HttpServletResponse response){
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		flush(response, userService.getAll());
-	}
 }

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com</groupId>
-	<artifactId>ssm</artifactId>
+	<artifactId>develop</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>develop</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -175,7 +175,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>ssm</finalName>
+		<finalName>develop</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

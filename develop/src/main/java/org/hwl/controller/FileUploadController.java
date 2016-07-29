@@ -48,6 +48,7 @@ public class FileUploadController extends BaseController{
 					// 存储的文件
 					String saveName = UUID.randomUUID().toString() + fileName;
 					File uploadedFile = new File(basePath+savePath, saveName);
+					System.out.println(item.isInMemory()+"xxxxxxxxxxxxxxxxxxx");
 					try {
 						item.write(uploadedFile);
 					} catch (Exception e) {

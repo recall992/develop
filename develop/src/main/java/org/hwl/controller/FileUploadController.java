@@ -27,6 +27,10 @@ public class FileUploadController extends BaseController{
 	private static final String savePath = "upload";
 	@RequestMapping("/upfile")
 	public void uploadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		// 允许跨域
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		
 		String basePath=request.getSession().getServletContext().getRealPath("/");
 		// 判断表单是否是Multipart类型的。这里可以直接对request进行判断
 		if (ServletFileUpload.isMultipartContent(request)) {
@@ -63,4 +67,5 @@ public class FileUploadController extends BaseController{
 		UploadProgress progress=(UploadProgress) request.getSession().getAttribute(request.getSession().getId());
 		flush(response, progress);
 	}
+	
 }

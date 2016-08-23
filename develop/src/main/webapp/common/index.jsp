@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="/common/plugin.jsp"></jsp:include>
 <title>登录</title>
-
 <style>
-.fd {
-	margin-top: 120px;
-}
+	.fd {
+		margin-top: 120px;
+	}
 </style>
 </head>
-
 <body>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 fd well">
@@ -85,7 +86,5 @@
 
 		})
 	</script>
-
 </body>
-
 </html>

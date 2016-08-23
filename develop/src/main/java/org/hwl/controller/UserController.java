@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user")
@@ -33,6 +34,15 @@ public class UserController extends BaseController {
 		}else{
 			flush(response, HttpCode.buildResult(HttpCode.STATE_SUCCESS, null));
 		}
+	}
+	@ResponseBody
+	@RequestMapping("/add")
+	public User addUser(){
+		User u=new User();
+		u.setPassword("1231231");
+		u.setUsername("haifeng");
+		u.setRole(123);
+		return u;
 	}
 	
 }

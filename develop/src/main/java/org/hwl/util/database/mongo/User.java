@@ -1,4 +1,4 @@
-package org.hwl.mongo;
+package org.hwl.util.database.mongo;
 
 import java.io.Serializable;
 

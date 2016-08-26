@@ -1,4 +1,4 @@
-package org.hwl.mail;
+package org.hwl.util.mail;
 
 import java.io.Serializable;
 

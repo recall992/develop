@@ -14,23 +14,5 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private UserDao userdao;
 
-	@Override
-	public List<User> getAllUsers() {
-		return userdao.getAllUser();
-	}
-	public void addUser(User user){
-		userdao.addUser(user);
-	}
 
-	public User getUserById(int id){
-		return userdao.getUserById(id);
-	}
-
-	public User getUserByName(String name){
-		return userdao.getUserByName(name);
-	}
-	@Override
-	public List<Map> getAll() {
-		return userdao.getAll();
-	}
 }

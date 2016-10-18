@@ -8,10 +8,4 @@
 	<settings>
 		 <setting name="logImpl" value="LOG4J"/> 
 	</settings>
-	<typeAliases>
-		<package name="org.hwl.bean" />
-	</typeAliases>
-	<mappers>
-		<package name="org.hwl.bean.mapping"/>
-	</mappers>
 </configuration>

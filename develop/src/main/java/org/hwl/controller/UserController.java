@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RestController("/user")
 public class UserController  {
-	private static Logger log= Logger.getLogger(UserController.class);
+	private static Logger logger= Logger.getLogger(UserController.class);
 	
 	@Autowired
 	private IUserService userService;
